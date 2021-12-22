@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.doudou.onlinebook.dao.OnlineBookingMapper">
+    <insert id="sendBooking" keyProperty="seqId" useGeneratedKeys="true"
+            parameterType="com.doudou.onlinebook.entity.HotMailBean">
+INSERT INTO HotMail (
+	companyId,bookingTime,
+	bookingEmail,
+	businessNumber,
+	ren,bookingName
+)
+VALUES
+	(#{companyId},#{bookingTime},#{bookingEmail},#{businessNumber},#{ren},#{bookingName})
+
+    </insert>
+    <insert id="sendBookingServices" parameterType="com.doudou.onlinebook.entity.BookingServicesBean">
+        INSERT INTO BookingServices (
+        bookingId,
+        serviceName,
+        serviceTime,
+        staffName
+        ) values
+        ( #{bookingId}
+            ,#{serviceName}
+            ,#{serviceTime}
+            ,#{staffName}
+        )
+    </insert>
+
+</mapper>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.doudou.onlinebook.dao.CompanyMapper">
+
+    <select id="getCompanyInfo" resultType="com.doudou.onlinebook.entity.CompanyBean"
+            parameterType="java.lang.String">
+           select t.companyId,t.companyName,t.companyEmail,t.companyTel from company t where t.companyId = #{companyId}
+    </select>
+
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.doudou.onlinebook.dao.OrderShowMapper">
+
+    <select id="show" resultType="com.doudou.onlinebook.entity.OrderListBean"
+            parameterType="com.doudou.onlinebook.entity.RequestVo">
+
+        SELECT
+        bookingTime,
+        bookingEmail,
+        businessNumber,
+        ren,
+        bookingName
+        FROM
+        HotMail t
+
+        WHERE
+        t.companyId =  #{companyId}
+        <if test="startTime != null and startTime.length>0">
+            AND to_days(t.bookingTime) = to_days(#{startTime})
+        </if>
+        <if test="startTime == null or startTime.length=0">
+            AND to_days(t.bookingTime) = to_days(now())
+        </if>
+
+
+  </select>
+
+</mapper>

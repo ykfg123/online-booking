@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.doudou.onlinebook.dao.StaffManageMapper">
+
+    <select id="getStaffInfo" resultType="com.doudou.onlinebook.entity.StaffManageBean"
+            parameterType="com.doudou.onlinebook.entity.RequestVo">
+      SELECT
+		t.staffName,
+	t.staffId,
+	t.staffNo,
+	t.Tel,
+	t.Addr,
+	t.City,
+	t.companyId,
+	t.Email,
+	t.Age,
+	t.sts,
+	t.createTime,
+	t.remark,
+	t.updateTime
+FROM
+	staffManager t
+WHERE
+	t.staffNo = #{staffNo}
+AND t.staffPws = #{staffPws}
+and t.companyId = #{companyId}
+and t.sts = 0
+    </select>
+
+</mapper>

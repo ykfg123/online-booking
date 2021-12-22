@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN">
+	<properties>
+		<property name="LOG_HOME">../logs/onlineLogs</property>
+		<property name="FILE_NAME">mybatis</property>
+		<property name="log.sql.level">INFO</property>
+	</properties>
+
+
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout charset="GBK" pattern="%d{HH:mm:ss.SSS} [%t] %-5level %l - %msg%n" />
+		</Console>
+
+		<RollingRandomAccessFile name="RollingRandomAccessFile" fileName="${LOG_HOME}/${FILE_NAME}.log" filePattern="${LOG_HOME}/$${date:yyyy-MM-dd}/${FILE_NAME}-%d{yyyy-MM-dd HH}-%i.log">
+			<PatternLayout charset="GBK" pattern="%d{HH:mm:ss.SSS} [%t] %-5level %l - %msg%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"/>
+				<SizeBasedTriggeringPolicy size="100 MB"/>
+			</Policies>
+			<DefaultRolloverStrategy max="20"/>
+		</RollingRandomAccessFile>
+		<RollingFile name="RollingFileInfo" fileName="${LOG_HOME}/logs/info.log"
+					 filePattern="${LOG_HOME}/logs/$${date:yyyy-MM-dd}/info-%d{yyyy-MM-dd HH}-%i.log">
+			<!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+			<ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+			<PatternLayout charset="GBK" pattern="[%d{HH:mm:ss:SSS}] [%p][%t] - %l - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+				<SizeBasedTriggeringPolicy size="100 MB"/>
+			</Policies>
+			<DefaultRolloverStrategy max="20"/>
+		</RollingFile>
+		<RollingFile name="RollingFileWarn" fileName="${LOG_HOME}/logs/warn.log"
+					 filePattern="${LOG_HOME}/logs/$${date:yyyy-MM-dd}/warn-%d{yyyy-MM-dd HH}-%i.log">
+			<ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+			<PatternLayout charset="GBK" pattern="[%d{HH:mm:ss:SSS}] [%p][%t] - %l - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+				<SizeBasedTriggeringPolicy size="100 MB"/>
+			</Policies>
+			<!-- DefaultRolloverStrategy属性如不设置，则默认为最多同一文件夹下7个文件，这里设置了20 -->
+			<DefaultRolloverStrategy max="20"/>
+		</RollingFile>
+		<RollingFile name="RollingFileError" fileName="${LOG_HOME}/logs/error.log"
+					 filePattern="${LOG_HOME}/logs/$${date:yyyy-MM-dd}/error-%d{yyyy-MM-dd HH}-%i.log">
+			<ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+			<PatternLayout charset="GBK" pattern="[%d{HH:mm:ss:SSS}] [%p][%t] - %l - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+				<SizeBasedTriggeringPolicy size="100 MB"/>
+			</Policies>
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="Console" />
+			<appender-ref ref="RollingFileInfo"/>
+			<appender-ref ref="RollingFileWarn"/>
+			<appender-ref ref="RollingFileError"/>
+		</Root>
+		<Logger name="com.doudou.onlinebook.dao" level="${log.sql.level}" additivity="false">
+			<AppenderRef ref="Console" />
+			<appender-ref ref="RollingRandomAccessFile"/>
+		</Logger>
+	</Loggers>
+</Configuration>
