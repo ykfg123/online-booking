@@ -21,6 +21,7 @@ public class OrderShowServiceImpl implements OrderShowService {
     private OrderShowMapper orderShowMapper;
     @Override
     public List<HotMailBean> show(RequestVo vo) throws Exception {
+        //测试一下
         return orderShowMapper.show(vo);
     }
 }
