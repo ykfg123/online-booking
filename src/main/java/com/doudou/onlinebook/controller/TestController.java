@@ -22,7 +22,7 @@ public class TestController {
     @ResponseBody
     public String index(){
 
-        return "监控管理后台启动成功";
+        return "预定管理后台启动成功";
     }
 
 }
