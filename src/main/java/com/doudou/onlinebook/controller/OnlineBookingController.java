@@ -5,6 +5,8 @@ import com.doudou.onlinebook.entity.BookingServicesBean;
 import com.doudou.onlinebook.entity.HotMailBean;
 import com.doudou.onlinebook.service.OnlineBookingService;
 import lombok.extern.log4j.Log4j2;
+import org.apache.logging.log4j.core.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -27,6 +29,7 @@ import java.util.Properties;
 @RequestMapping("/insalonhair/online")
 @Log4j2
 public class OnlineBookingController {
+
     @Autowired
     JavaMailSender jsm;
     @Value("${spring.mail.username}")
@@ -64,7 +67,7 @@ public class OnlineBookingController {
             obj.put("data","0");
             obj.put("mgc","Booking Success");
         }catch (Exception e){
-            log.error(e);
+            log.error("预定报错",e);
             obj.put("code","-1");
             obj.put("data","-1");
             obj.put("mgc","Booking Failed");

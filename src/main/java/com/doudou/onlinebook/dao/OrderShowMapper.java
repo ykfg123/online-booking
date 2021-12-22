@@ -16,4 +16,8 @@ import java.util.List;
 @Mapper
 public interface OrderShowMapper extends BaseMapper<HotMailBean> {
     List<HotMailBean> show(RequestVo vo);
+
+    HotMailBean showDetails(RequestVo vo);
+
+    Integer getTotal(RequestVo vo);
 }

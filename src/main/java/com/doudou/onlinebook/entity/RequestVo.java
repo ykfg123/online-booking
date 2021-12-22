@@ -11,17 +11,18 @@ import lombok.ToString;
 @ToString
 public class RequestVo {
 
-    public String companyId;
     public String startTime;
+    public String companyId;
     public String endTime;
     public String searchType;
     public String username;
     public String staffPws;
     public String staffNo;
     public String keyWord;
-    public String pageNum;
-    public String pageSize;
+    public Integer pageNum;
+    public Integer pageSize;
     public String timestamp;
+    public String seqId;
 
     public String getKeyWord() {
         return keyWord;
@@ -31,19 +32,27 @@ public class RequestVo {
         this.keyWord = keyWord;
     }
 
-    public String getPageNum() {
+    public String getSeqId() {
+        return seqId;
+    }
+
+    public void setSeqId(String seqId) {
+        this.seqId = seqId;
+    }
+
+    public Integer getPageNum() {
         return pageNum;
     }
 
-    public void setPageNum(String pageNum) {
+    public void setPageNum(Integer pageNum) {
         this.pageNum = pageNum;
     }
 
-    public String getPageSize() {
+    public Integer getPageSize() {
         return pageSize;
     }
 
-    public void setPageSize(String pageSize) {
+    public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
     }
 

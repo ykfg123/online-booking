@@ -1,11 +1,12 @@
 package com.doudou.onlinebook.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.extension.api.R;
-import com.doudou.onlinebook.entity.HotMailBean;
 import com.doudou.onlinebook.entity.RequestVo;
 import com.doudou.onlinebook.service.UserManagerService;
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.core.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +38,7 @@ public class LoginController {
             obj.put("data","0");
             obj.put("mgc","Booking Success");
         }catch (Exception e){
-            log.error(e);
+            log.error("登录报错",e);
             obj.put("code","-1");
             obj.put("data","-1");
             obj.put("mgc","Booking Failed");

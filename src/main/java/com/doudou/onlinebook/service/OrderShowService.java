@@ -8,4 +8,8 @@ import java.util.List;
 public interface OrderShowService {
 
     List<HotMailBean> show(RequestVo vo)throws Exception;
+
+    HotMailBean showDetails(RequestVo vo);
+
+    Integer getTotal(RequestVo vo);
 }

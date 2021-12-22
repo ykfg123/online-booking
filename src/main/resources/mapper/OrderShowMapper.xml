@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.doudou.onlinebook.dao.OrderShowMapper">
+    <sql id="limitPageSql">
+	limit #{pageNum},#{pageSize}
+	</sql>
+    <sql id="common_where_if">
+        <if test="companyId!=null and companyId!='' ">
+            t.companyId =  #{companyId}
+        </if>
+        <if test="startTime !=null and startTime.length>0 and startTime !='' ">
+            AND to_days(t.bookingTime) = to_days(#{startTime})
+        </if>
 
-    <select id="show" resultType="com.doudou.onlinebook.entity.OrderListBean"
+    </sql>
+    <select id="show" resultType="com.doudou.onlinebook.entity.HotMailBean"
             parameterType="com.doudou.onlinebook.entity.RequestVo">
 
         SELECT
@@ -13,17 +24,40 @@
         bookingName
         FROM
         HotMail t
-
-        WHERE
-        t.companyId =  #{companyId}
-        <if test="startTime != null and startTime.length>0">
-            AND to_days(t.bookingTime) = to_days(#{startTime})
-        </if>
-        <if test="startTime == null or startTime.length=0">
-            AND to_days(t.bookingTime) = to_days(now())
-        </if>
-
+        <where>
+            <include refid="common_where_if"/>
+        </where>
+        <include refid="limitPageSql" />
 
   </select>
+
+    <select id="showDetails" resultType="com.doudou.onlinebook.entity.HotMailBean"
+            parameterType="com.doudou.onlinebook.entity.RequestVo">
+
+        SELECT
+        bookingTime,
+        bookingEmail,
+        businessNumber,
+        ren,
+        bookingName,
+        t1.serviceName,
+        t1.serviceTime,
+        t1.staffName
+        FROM
+        HotMail t
+        LEFT JOIN BookingServices t1 ON t1.bookingId = t.seqId
+        WHERE
+         t.companyId =  #{companyId} AND t.seqId =#{seqId}
+    </select>
+    <select id="getTotal" resultType="java.lang.Integer"
+            parameterType="com.doudou.onlinebook.entity.RequestVo">
+        SELECT
+        count(1)
+        FROM
+        HotMail t
+        <where>
+            <include refid="common_where_if"/>
+        </where>
+    </select>
 
 </mapper>
