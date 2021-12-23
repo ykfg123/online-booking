@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.doudou.onlinebook.dao.StaffManageMapper">
-
+	<sql id="limitPageSql">
+	limit #{pageNum},#{pageSize}
+	</sql>
+	<sql id="common_where_if">
+		1=1
+		<if test="companyId != null and companyId != '' and companyId.length>0">
+			and t.companyId =  #{companyId}
+		</if>
+		<if test="startTime !=null and startTime !=''  and startTime.length>0 ">
+			and t.createTime &gt;= #{startTime}
+		</if>
+		<if test="endTime !=null and endTime !=''  and endTime.length>0">
+			and t.createTime &lt;= #{endTime}
+		</if>
+		<if test="staffId !=null and staffId !=''">
+			and t.staffId = #{staffId}
+		</if>
+	</sql>
     <select id="getStaffInfo" resultType="com.doudou.onlinebook.entity.StaffManageBean"
             parameterType="com.doudou.onlinebook.entity.RequestVo">
       SELECT
@@ -26,5 +43,81 @@ AND t.staffPws = #{staffPws}
 and t.companyId = #{companyId}
 and t.sts = 0
     </select>
-
+	<delete id="deleteStaff" parameterType="java.lang.Integer">
+		delete staffManager t WHERE t.staffId = #{staffId}
+	</delete>
+<select id="show" parameterType="com.doudou.onlinebook.entity.RequestVo"
+		resultType="com.doudou.onlinebook.entity.StaffManageBean">
+	select
+	t.staffName,
+	t.staffId,
+	t.staffNo,
+	t.Tel,
+	t.Addr,
+	t.City,
+	t.companyId,
+	t.Email,
+	t.Age,
+	t.sts,
+	t.createTime,
+	t.remark,
+	t.updateTime
+	FROM
+	staffManager t
+	<where>
+		<include refid="common_where_if"/>
+	</where>
+	<include refid="limitPageSql" />
+	ORDER BY t.createTime DESC
+</select>
+	<select id="getTotal" parameterType="com.doudou.onlinebook.entity.RequestVo"
+			resultType="com.doudou.onlinebook.entity.StaffManageBean">
+		select
+		count(1)
+		FROM
+		staffManager t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+	<insert id="add" parameterType="com.doudou.onlinebook.entity.StaffManageBean">
+		INSERT INTO staffManager t (
+	t.staffName,
+	t.staffNo,
+	t.Tel,
+	t.Addr,
+	t.City,
+	t.companyId,
+	t.Email,
+	t.Age,
+	t.remark
+)
+VALUES
+	(#{staffName},#{staffNo},#{Tel},#{Addr},#{City},#{companyId},#{Email},#{Age},#{remark})
+	</insert>
+	<select id="showDetails" parameterType="java.lang.Integer"
+			resultType="com.doudou.onlinebook.entity.StaffManageBean">
+		select
+		t.staffName,
+		t.staffId,
+		t.staffNo,
+		t.Tel,
+		t.Addr,
+		t.City,
+		t.companyId,
+		t.Email,
+		t.Age,
+		t.sts,
+		t.createTime,
+		t.remark,
+		t.updateTime
+		FROM
+		staffManager t
+		<where>
+			1=1
+			<if test="staffId !=null and staffId !=''">
+				and t.staffId = #{staffId}
+			</if>
+		</where>
+	</select>
 </mapper>

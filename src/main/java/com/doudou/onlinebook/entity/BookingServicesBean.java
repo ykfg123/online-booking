@@ -1,11 +1,14 @@
 package com.doudou.onlinebook.entity;
 
+import lombok.ToString;
+
 /**
  * @author ：zhuyk
  * @date ：Created in 2021/11/15 22:31
  * @modified By：代购服务
  * @version: $
  */
+@ToString
 public class BookingServicesBean {
     public long bookingId;
     public String serviceName;

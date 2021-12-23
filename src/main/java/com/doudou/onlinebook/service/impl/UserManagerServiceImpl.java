@@ -19,7 +19,7 @@ public class UserManagerServiceImpl implements UserManagerService {
     @Autowired
     public StaffManageMapper staffManageMapper;
     @Override
-    public StaffManageBean login(RequestVo requestVo) {
+    public StaffManageBean login(RequestVo requestVo) throws Exception {
 
         return staffManageMapper.getStaffInfo(requestVo);
     }

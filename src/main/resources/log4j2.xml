@@ -10,7 +10,7 @@
 
 	<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">
-			<PatternLayout charset="GBK" pattern="%d{HH:mm:ss.SSS} [%t] %-5level %l - %msg%n" />
+			<PatternLayout charset="UTF-8" pattern="%d{HH:mm:ss.SSS} [%t] %-5level %l - %msg%n" />
 		</Console>
 
 		<RollingRandomAccessFile name="RollingRandomAccessFile" fileName="${LOG_HOME}/${FILE_NAME}.log" filePattern="${LOG_HOME}/$${date:yyyy-MM-dd}/${FILE_NAME}-%d{yyyy-MM-dd HH}-%i.log">

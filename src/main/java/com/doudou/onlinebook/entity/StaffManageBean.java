@@ -1,11 +1,14 @@
 package com.doudou.onlinebook.entity;
 
+import lombok.ToString;
+
 /**
  * @author ：zhuyk
  * @date ：Created in 2021/11/16 15:39
  * @modified By： 员工详情
  * @version: $
  */
+@ToString
 public class StaffManageBean {
     private String staffId;
     private String staffName;

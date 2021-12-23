@@ -1,11 +1,14 @@
 package com.doudou.onlinebook.entity;
 
+import lombok.ToString;
+
 /**
  * @author ：zhuyk
  * @date ：Created in 2021/11/16 14:51
  * @modified By：公司详情
  * @version: $
  */
+@ToString
 public class CompanyBean {
     private String companyId;//公司ID
     private String companyName;//公司名称

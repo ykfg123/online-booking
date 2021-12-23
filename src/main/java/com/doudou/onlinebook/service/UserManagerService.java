@@ -5,6 +5,6 @@ import com.doudou.onlinebook.entity.StaffManageBean;
 
 public interface UserManagerService {
 
-    public StaffManageBean login(RequestVo requestVo);
+    public StaffManageBean login(RequestVo requestVo) throws Exception;
 
 }

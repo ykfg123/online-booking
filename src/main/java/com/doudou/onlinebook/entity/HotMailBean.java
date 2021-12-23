@@ -1,5 +1,6 @@
 package com.doudou.onlinebook.entity;
 
+import lombok.ToString;
 import org.springframework.context.annotation.Bean;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
  * @modified By：代购详情
  * @version: $
  */
+@ToString
 public class HotMailBean {
     public Long seqId;
     public String companyId;
