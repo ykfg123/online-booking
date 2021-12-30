@@ -1,4 +1,4 @@
-package com.doudou.onlinebook.controller;
+package com.doudou.onlinebook.controller.system;
 
 import com.alibaba.fastjson.JSONObject;
 import com.doudou.onlinebook.entity.RequestVo;
