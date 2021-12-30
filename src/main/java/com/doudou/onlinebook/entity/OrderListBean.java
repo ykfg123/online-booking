@@ -1,5 +1,7 @@
 package com.doudou.onlinebook.entity;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
@@ -9,6 +11,8 @@ import lombok.ToString;
  * @version: $
  */
 @ToString
+@Setter
+@Getter
 public class OrderListBean {
     public String bookingTime;
     public String bookingEmail;

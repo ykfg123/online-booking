@@ -1,5 +1,7 @@
 package com.doudou.onlinebook.entity;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
@@ -9,6 +11,8 @@ import lombok.ToString;
  * @version: $
  */
 @ToString
+@Setter
+@Getter
 public class ServiceInfoBean {
     private String serviceId;
     private String serviceName;
@@ -17,51 +21,5 @@ public class ServiceInfoBean {
     private String updateTime;
     private String remark;
 
-    public String getServiceId() {
-        return serviceId;
-    }
 
-    public void setServiceId(String serviceId) {
-        this.serviceId = serviceId;
-    }
-
-    public String getServiceName() {
-        return serviceName;
-    }
-
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
-    }
-
-    public String getSts() {
-        return sts;
-    }
-
-    public void setSts(String sts) {
-        this.sts = sts;
-    }
-
-    public String getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
 }

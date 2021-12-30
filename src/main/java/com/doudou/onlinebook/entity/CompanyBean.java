@@ -1,5 +1,7 @@
 package com.doudou.onlinebook.entity;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
@@ -9,6 +11,8 @@ import lombok.ToString;
  * @version: $
  */
 @ToString
+@Setter
+@Getter
 public class CompanyBean {
     private String companyId;//公司ID
     private String companyName;//公司名称
@@ -25,115 +29,4 @@ public class CompanyBean {
     private String updateTime;
     private String remark;
 
-    public String getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
-    }
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public String getCompanyType() {
-        return companyType;
-    }
-
-    public void setCompanyType(String companyType) {
-        this.companyType = companyType;
-    }
-
-    public String getSts() {
-        return sts;
-    }
-
-    public void setSts(String sts) {
-        this.sts = sts;
-    }
-
-    public String getCompanyPws() {
-        return companyPws;
-    }
-
-    public void setCompanyPws(String companyPws) {
-        this.companyPws = companyPws;
-    }
-
-    public String getCompanyCity() {
-        return companyCity;
-    }
-
-    public void setCompanyCity(String companyCity) {
-        this.companyCity = companyCity;
-    }
-
-    public String getCompanyLogo() {
-        return companyLogo;
-    }
-
-    public void setCompanyLogo(String companyLogo) {
-        this.companyLogo = companyLogo;
-    }
-
-    public String getCompanyAddr() {
-        return companyAddr;
-    }
-
-    public void setCompanyAddr(String companyAddr) {
-        this.companyAddr = companyAddr;
-    }
-
-    public String getCompanyEmail() {
-        return companyEmail;
-    }
-
-    public void setCompanyEmail(String companyEmail) {
-        this.companyEmail = companyEmail;
-    }
-
-    public String getCompanyTel() {
-        return companyTel;
-    }
-
-    public void setCompanyTel(String companyTel) {
-        this.companyTel = companyTel;
-    }
-
-    public String getOperatHours() {
-        return operatHours;
-    }
-
-    public void setOperatHours(String operatHours) {
-        this.operatHours = operatHours;
-    }
-
-    public String getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
 }

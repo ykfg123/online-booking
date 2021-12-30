@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.doudou.onlinebook.dao.monitor.LargeScreenMonitorMapper">
+
+    <select id="getDayNum" resultType="java.lang.Integer"
+            parameterType="com.doudou.onlinebook.entity.RequestVo">
+	SELECT
+	IFNULL(count(1),0) dayNum
+FROM
+	HotMail t
+WHERE
+        1=1
+        <if test="companyId != null and companyId != '' and companyId.length>0">
+            and t.companyId =  #{companyId}
+        </if>
+	AND to_days(t.bookingTime) = to_days(now())
+GROUP BY
+	DATE(t.bookingTime)
+    </select>
+    <select id="getMonthNum" resultType="java.lang.Integer"
+            parameterType="com.doudou.onlinebook.entity.RequestVo">
+        SELECT
+        IFNULL(count(1),0) monthNum
+        FROM
+        HotMail t
+        WHERE
+        1=1
+        <if test="companyId != null and companyId != '' and companyId.length>0">
+            and t.companyId =  #{companyId}
+        </if>
+        and MONTH(t.bookingTime) = MONTH(now())
+        GROUP BY
+        MONTH(t.bookingTime)
+    </select>
+    <select id="getTotalNum" resultType="java.lang.Integer"
+            parameterType="com.doudou.onlinebook.entity.RequestVo">
+        SELECT
+        count(1) totalNum
+        FROM
+        HotMail t
+        WHERE
+        1=1
+        <if test="companyId != null and companyId != '' and companyId.length>0">
+            and t.companyId =  #{companyId}
+        </if>
+
+    </select>
+    <select id="getTotalNum" resultType="com.doudou.onlinebook.entity.monitor.StaffDataBean"
+            parameterType="com.doudou.onlinebook.entity.RequestVo">
+        SELECT
+        count(1) totalNum
+        FROM
+        HotMail t
+        WHERE
+        1=1
+        <if test="companyId != null and companyId != '' and companyId.length>0">
+            and t.companyId =  #{companyId}
+        </if>
+
+    </select>
+    <select id="getTotalNum" resultType="java.lang.Integer"
+            parameterType="com.doudou.onlinebook.entity.RequestVo">
+        SELECT
+        count(1) totalNum
+        FROM
+        HotMail t
+        WHERE
+        1=1
+        <if test="companyId != null and companyId != '' and companyId.length>0">
+            and t.companyId =  #{companyId}
+        </if>
+
+    </select>
+
+</mapper>

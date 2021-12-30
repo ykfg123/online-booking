@@ -1,5 +1,7 @@
 package com.doudou.onlinebook.entity;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
@@ -9,6 +11,8 @@ import lombok.ToString;
  * @version: $
  */
 @ToString
+@Setter
+@Getter
 public class RequestVo {
 
     public String startTime;
@@ -24,99 +28,4 @@ public class RequestVo {
     public String timestamp;
     public String seqId;
 
-    public String getKeyWord() {
-        return keyWord;
-    }
-
-    public void setKeyWord(String keyWord) {
-        this.keyWord = keyWord;
-    }
-
-    public String getSeqId() {
-        return seqId;
-    }
-
-    public void setSeqId(String seqId) {
-        this.seqId = seqId;
-    }
-
-    public Integer getPageNum() {
-        return pageNum;
-    }
-
-    public void setPageNum(Integer pageNum) {
-        this.pageNum = pageNum;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
-    }
-
-    public String getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getSearchType() {
-        return searchType;
-    }
-
-    public void setSearchType(String searchType) {
-        this.searchType = searchType;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getStaffPws() {
-        return staffPws;
-    }
-
-    public void setStaffPws(String staffPws) {
-        this.staffPws = staffPws;
-    }
-
-    public String getStaffNo() {
-        return staffNo;
-    }
-
-    public void setStaffNo(String staffNo) {
-        this.staffNo = staffNo;
-    }
 }
