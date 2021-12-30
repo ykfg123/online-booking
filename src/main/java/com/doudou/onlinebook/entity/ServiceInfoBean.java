@@ -10,16 +10,20 @@ import lombok.ToString;
  * @modified By：
  * @version: $
  */
-@ToString
-@Setter
 @Getter
+@Setter
+@ToString
 public class ServiceInfoBean {
-    private String serviceId;
-    private String serviceName;
-    private String sts;
-    private String createTime;
-    private String updateTime;
-    private String remark;
-
+    private String serviceId;//服务ID
+    private String serviceName;//服务名
+    private String serviceGroupId;//服务组ID
+    private String priceMin;//价格小
+    private String priceMax;//价格大
+    private String timeSts;//生效状态 0全天  1上午 2下午
+    private String sts;//状态
+    private String createTime;//创建时间
+    private String updateTime;//修改时间
+    private String remark;//备注
+    private String companyId;//公司ID
 
 }

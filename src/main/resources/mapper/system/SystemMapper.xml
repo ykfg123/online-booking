@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.doudou.onlinebook.dao.system.SystemMapper">
+	<sql id="limitPageSql">
+	limit #{pageNum},#{pageSize}
+	</sql>
+	<sql id="common_where_if">
+		1=1
+		<if test="companyId != null and companyId != '' and companyId.length>0">
+			and t.companyId =  #{companyId}
+		</if>
+
+	</sql>
+
+	<delete id="deleteSystem" parameterType="java.lang.Integer">
+		delete systemManage t WHERE t.seqId = #{seqId} and t.companyId = #{companyId}
+	</delete>
+	<select id="showDetails" parameterType="com.doudou.onlinebook.entity.RequestVo"
+			resultType="com.doudou.onlinebook.entity.system.SystemBean">
+		select
+		seqId,
+		paramCode,
+		ownerDesc,
+		paramName,
+		paramValue,
+		isUsedFlag,
+		isForCompany,
+		createTime,
+		updateTime,
+		remark,
+		companyId
+		from
+		systemManage
+		<where>
+			<include refid="common_where_if"></include>
+		</where>
+	</select>
+
+	<insert id="setSystem" parameterType="com.doudou.onlinebook.entity.system.SystemBean">
+		INSERT INTO systemManage t (
+		paramCode,
+		ownerDesc,
+		paramName,
+		paramValue,
+		remark,
+		companyId
+)
+VALUES
+	(#{paramCode},
+		#{ownerDesc},
+		#{paramName},
+		#{paramValue},
+		#{remark},
+		#{companyId})
+	</insert>
+
+
+</mapper>
