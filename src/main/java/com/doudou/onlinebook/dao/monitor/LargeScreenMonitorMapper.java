@@ -1,6 +1,7 @@
 package com.doudou.onlinebook.dao.monitor;
 
-import com.doudou.onlinebook.entity.monitor.LargeScreenMonitorBean;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
 import com.doudou.onlinebook.entity.RequestVo;
 import com.doudou.onlinebook.entity.monitor.ServiceDataBean;
 import com.doudou.onlinebook.entity.monitor.StaffDataBean;
@@ -15,16 +16,16 @@ import java.util.List;
  * @version: 1.0.0$
  */
 @Mapper
-public interface LargeScreenMonitorMapper {
+public interface LargeScreenMonitorMapper extends BaseMapper<StaffDataBean> {
 
 
-    public Integer getDayNum(RequestVo vo) throws Exception;
+    public Integer getDayNum(RequestVo vo) ;
 
-    public Integer getMonthNum(RequestVo vo) throws Exception;
+    public Integer getMonthNum(RequestVo vo) ;
 
-    public Integer getTotalNum(RequestVo vo) throws Exception;
+    public Integer getTotalNum(RequestVo vo) ;
 
-    public List<StaffDataBean> getStaffList(RequestVo vo)throws Exception;
+    public List<StaffDataBean> getStaffList(RequestVo vo);
 
-    public List<ServiceDataBean> getServiceList(RequestVo vo)throws Exception;
+    public List<ServiceDataBean> getServiceList(RequestVo vo);
 }

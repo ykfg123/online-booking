@@ -15,6 +15,7 @@ import lombok.ToString;
 @Getter
 public class StaffDataBean {
 
+    public String staffId;
     public String staffName;
     public String count;
     public String dayStr;

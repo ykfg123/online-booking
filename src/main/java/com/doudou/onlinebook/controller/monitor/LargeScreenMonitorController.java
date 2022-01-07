@@ -6,10 +6,7 @@ import com.doudou.onlinebook.entity.RequestVo;
 import com.doudou.onlinebook.service.monitor.LargeScreenMonitorService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author ：zhuyk
@@ -26,7 +23,7 @@ public class LargeScreenMonitorController {
     public LargeScreenMonitorService largeScreenMonitorService;
 
     @PostMapping(value = "/homepage", produces = "text/html;charset=UTF-8")
-    public String homePage(@RequestBody RequestVo vo){
+    public String homePage(RequestVo vo){
         JSONObject obj = new JSONObject();
         try {
             LargeScreenMonitorBean  list = largeScreenMonitorService.getMonitorData(vo);

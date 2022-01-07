@@ -11,15 +11,15 @@ import java.util.List;
 @Mapper
 public interface StaffManageMapper extends BaseMapper<StaffManageBean> {
 
-    public int addStaffInfo(StaffManageBean staffManageBean) throws Exception;
+    public int addStaffInfo(StaffManageBean staffManageBean) ;
 
-    public StaffManageBean getStaffInfo(RequestVo vo) throws Exception;
+    public StaffManageBean getStaffInfo(RequestVo vo) ;
 
-    public List<StaffManageBean> show(RequestVo vo) throws Exception;
+    public List<StaffManageBean> show(RequestVo vo) ;
 
-    public  Integer deleteStaff(Integer staffId) throws Exception;
+    public  Integer deleteStaff(Integer staffId) ;
 
-    public  Integer getTotal(RequestVo vo) throws Exception;
+    public  Integer getTotal(RequestVo vo) ;
 
-    public  StaffManageBean showDetails(@Param("staffId")Integer staffId) throws Exception;
+    public  StaffManageBean showDetails(@Param("staffId")Integer staffId);
 }

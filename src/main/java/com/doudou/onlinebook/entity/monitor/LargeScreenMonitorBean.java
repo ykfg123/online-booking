@@ -22,7 +22,7 @@ public class LargeScreenMonitorBean {
     public String monthNum;//月预定数量
     public String dayNum;//今日预定数量
     public String totalNum;//总预定数量
-    public List<StaffDataBean> list;//今日员工预定数量
+    public List<StaffDataBean> staffDatalist;//今日员工预定数量
     public List<ServiceDataBean> serviceDataList;//今日服务预定数量
 
 }

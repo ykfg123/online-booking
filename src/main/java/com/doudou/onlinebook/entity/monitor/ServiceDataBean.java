@@ -14,6 +14,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ServiceDataBean {
+
+    public String serviceId;
     public String serviceName;
     public String count;
     public String dateStr;

@@ -4,18 +4,18 @@
 
     <select id="getDayNum" resultType="java.lang.Integer"
             parameterType="com.doudou.onlinebook.entity.RequestVo">
-	SELECT
-	IFNULL(count(1),0) dayNum
-FROM
-	HotMail t
-WHERE
+        SELECT
+        IFNULL(count(1),0) dayNum
+        FROM
+        HotMail t
+        WHERE
         1=1
         <if test="companyId != null and companyId != '' and companyId.length>0">
-            and t.companyId =  #{companyId}
+            and t.companyId = #{companyId}
         </if>
-	AND to_days(t.bookingTime) = to_days(now())
-GROUP BY
-	DATE(t.bookingTime)
+        AND to_days(t.bookingTime) = to_days(now())
+        GROUP BY
+        DATE(t.bookingTime)
     </select>
     <select id="getMonthNum" resultType="java.lang.Integer"
             parameterType="com.doudou.onlinebook.entity.RequestVo">
@@ -26,7 +26,7 @@ GROUP BY
         WHERE
         1=1
         <if test="companyId != null and companyId != '' and companyId.length>0">
-            and t.companyId =  #{companyId}
+            and t.companyId = #{companyId}
         </if>
         and MONTH(t.bookingTime) = MONTH(now())
         GROUP BY
@@ -41,35 +41,50 @@ GROUP BY
         WHERE
         1=1
         <if test="companyId != null and companyId != '' and companyId.length>0">
-            and t.companyId =  #{companyId}
+            and t.companyId = #{companyId}
         </if>
 
     </select>
-    <select id="getTotalNum" resultType="com.doudou.onlinebook.entity.monitor.StaffDataBean"
+    <select id="getStaffList" resultType="com.doudou.onlinebook.entity.monitor.StaffDataBean"
             parameterType="com.doudou.onlinebook.entity.RequestVo">
         SELECT
-        count(1) totalNum
+        t2.staffId,
+        t2.staffName,
+        count(1) as count,t.bookingTime as dayStr
         FROM
         HotMail t
+        LEFT JOIN BookingServices t1 ON t1.bookingId = t.seqId
+        LEFT JOIN staffManager t2 ON t2.staffId = t1.staffId
         WHERE
-        1=1
+        1 = 1
         <if test="companyId != null and companyId != '' and companyId.length>0">
-            and t.companyId =  #{companyId}
+            and t.companyId = #{companyId}
         </if>
+        AND to_days(t.bookingTime) = to_days(now())
+        GROUP BY
+        t2.staffId,
+        t2.staffName
 
     </select>
-    <select id="getTotalNum" resultType="java.lang.Integer"
+    <select id="getServiceList" resultType="com.doudou.onlinebook.entity.monitor.ServiceDataBean"
             parameterType="com.doudou.onlinebook.entity.RequestVo">
         SELECT
-        count(1) totalNum
+        t.serviceId,
+        t.serviceName,
+        count(1) AS count,
+        t1.bookingTime AS dateStr
         FROM
-        HotMail t
+        BookingServices t
+        LEFT JOIN HotMail t1 ON t1.seqId = t.bookingId
         WHERE
-        1=1
+        1 = 1
         <if test="companyId != null and companyId != '' and companyId.length>0">
-            and t.companyId =  #{companyId}
+            and t1.companyId = #{companyId}
         </if>
-
+        AND to_days(t1.bookingTime) = to_days(now())
+        GROUP BY
+        t.serviceId,
+        t.serviceName
     </select>
 
 </mapper>
