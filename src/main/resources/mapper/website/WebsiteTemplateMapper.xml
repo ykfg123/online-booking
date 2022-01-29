@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.doudou.onlinebook.dao.website.WebsiteTemplateMapper">
+
+    <select id="show" resultType="com.doudou.onlinebook.entity.website.WebsiteTemplateBean"
+            parameterType="java.lang.String">
+SELECT
+	templateId,
+	templateGroupId,
+	templateName,
+	sts,
+	templateUrl,
+	templateImg,
+	createTime,
+	updateTime,
+	remark
+FROM
+	TemplateManager
+<where>
+    sts = '0'
+    <if test="typeId !=null and typeId.length>0 and typeId !='' ">
+        AND templateGroupId =  #{typeId}
+    </if>
+
+</where>
+
+    </select>
+
+</mapper>

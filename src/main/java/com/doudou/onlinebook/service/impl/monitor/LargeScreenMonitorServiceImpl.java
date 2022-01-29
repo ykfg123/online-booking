@@ -53,7 +53,7 @@ public class LargeScreenMonitorServiceImpl implements LargeScreenMonitorService 
         }else {
             largeScreenMonitorBean.setTotalNum(totalNum.toString());
         }
-        largeScreenMonitorBean.setList(staffList);
+        largeScreenMonitorBean.setStaffDatalist(staffList);
         largeScreenMonitorBean.setServiceDataList(serviceList);
         return largeScreenMonitorBean;
     }
