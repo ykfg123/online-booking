@@ -45,7 +45,6 @@ public class MailSendThread implements Runnable {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.socketFactory.port",popPort);
         props.put("mail.smtp.socketFactory.fallback","false");
-/*
 
         Session session = Session.getDefaultInstance(props, new Authenticator() {
             @Override
@@ -74,7 +73,6 @@ public class MailSendThread implements Runnable {
        }catch (Exception e){
            log.error("MailSendThread",e);
        }
-*/
 
 
     }
