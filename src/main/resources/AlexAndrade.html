@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="xxxx">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<!--扫码开票成功邮件通知模板-->
+<body>
+<div style="background-color:#ECECEC; padding: 35px;">
+    <table cellpadding="0" align="center"
+           style="width: 800px;height: 100%; margin: 0px auto; text-align: left; position: relative; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; font-size: 14px; font-family:微软雅黑, 黑体; line-height: 1.5; box-shadow: rgb(153, 153, 153) 0px 0px 5px; border-collapse: collapse; background-position: initial initial; background-repeat: initial initial;background:#fff;">
+        <tbody>
+        <tr>
+            <th valign="middle"
+                style="height: 25px; line-height: 25px; padding: 15px 35px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #42a3d3; background-color: #49bcff; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px;">
+                <font face="微软雅黑" size="5" style="color: rgb(255, 255, 255); ">Appointment Info</font>
+            </th>
+        </tr>
+        <tr>
+            <td style="word-break:break-all">
+                <div>
+                    <p style="margin-left: 4%;margin-top: 5%;">Dear customer！</p>
+                    <p style="margin-left: 4%;">The appointment information you received is as follows：</p>
+                    <p></p>
+                </div>
+                <div style="padding:25px 35px 40px; background-color:#fff;">
+                    <h2 style="margin: 5px 0px; text-align:center;">
+                        <font color="#333333" style="line-height: 20px; ">
+                            <font style="line-height: 22px; " size="4">
+                                Booking info</font>
+                        </font>
+                    </h2>
+                    <!-- 使用占位数字 对应动态渲染数据信息-->
+                    <p>{0}：{1}</p>
+                    <p>{2}：{3}</p>
+                    <p>{4}：{5}</p>
+                    <p>{6}：{7}</p>
+                    <p>{8}：{9}</p>
+                    <p>{10}：{11}</p>
+                    <p>{12}：{13}</p>
+                    <p>{14}：{15}</p>
+                    <p>{16}：{17}</p>
+                    <br>
+                    <div style="width:700px;margin:0 auto;">
+                        <div style="padding:10px 10px 0;border-top:1px solid #ccc;color:#747474;margin-bottom:20px;line-height:1.3em;font-size:12px;">
+                            <p style="font-weight: bold;font-size: 15px;">Warm reminder：</p>
+
+                            <!--<p>灵税通电子发票为您提供便捷的发票服务，欢迎访问官网，选择您需要的发票解决方案https://xxx.com
+                                此电子发票由灵税通发票助手交付。</p><br>-->
+                            <p><!--此为系统邮件，请勿回复<br>-->
+                                Please do not reply to this system email
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

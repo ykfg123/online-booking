@@ -1,14 +1,16 @@
 package com.doudou.onlinebook.common.util;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 
+/**
+ * Created by cjd on 2017/12/8.
+ */
+public class MD5 {
 
-public class Md5Digest {
+
+
     /**
      * MD5 32加密（大写）
      * @param readyEncryptStr ready encrypt string
@@ -149,7 +151,6 @@ public class Md5Digest {
         }
         return readyEncryptStr;
     }
-
 
 
 }
