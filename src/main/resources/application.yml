@@ -11,7 +11,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource # MYSQL 5 \u9A71\u52A8\uFF1Acom.mysql.jdbc.Driver\uFF0CMYSQL 6+ \u9A71\u52A8\uFF1Acom.mysql.cj.jdbc.Driver
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/doudou?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false
+    url: jdbc:mysql://103.243.25.251:3306/doudou?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false
     username: doudou
     password: Wz5imn652DD8aMj6
     # \u8FDE\u63A5\u6C60\u914D\u7F6E
