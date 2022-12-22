@@ -11,9 +11,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource # MYSQL 5 \u9A71\u52A8\uFF1Acom.mysql.jdbc.Driver\uFF0CMYSQL 6+ \u9A71\u52A8\uFF1Acom.mysql.cj.jdbc.Driver
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://121.41.24.184:3306/doudou?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false
-    username: root
-    password: 205d0dd90c46
+    url: jdbc:mysql://103.243.25.251:3306/doudou?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false
+    username: doudou
+    password: Wz5imn652DD8aMj6
     # \u8FDE\u63A5\u6C60\u914D\u7F6E
     druid:
       # \u521D\u59CB\u5316\u5927\u5C0F\uFF0C\u6700\u5C0F\uFF0C\u6700\u5927
@@ -61,14 +61,20 @@ spring:
           statement-close-after-log-enabled: false
           result-set-open-after-log-enabled: false
           result-set-close-after-log-enabled: false
-  mail:
+  mail1:
     default-encoding: utf-8
-    host: smtp.163.com
-    password: YYIQXFPANXFGYUFE
+    host: smtp.yeah.net
+    password: QWKHVBUFZSCPHSNH
     port: 25
     protocol: smtp
-    username: Insalonhair@163.com
-
+    username: insalonhair@yeah.net
+  mail:
+    default-encoding: utf-8
+    host: smtp.yeah.net
+    password: MOFLRFSCGKDDIIJN
+    port: 25
+    protocol: smtp
+    username: netwok8@yeah.net
 logging:
   config: classpath:log4j2.xml
 mybatis-plus:
@@ -89,3 +95,5 @@ mybatis-plus:
     cache-enabled: false
     call-setters-on-nulls: true
     jdbc-type-for-null: 'null'
+email:
+  alex-andrade: alexandradecons@yahoo.com
