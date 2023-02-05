@@ -3,6 +3,7 @@ package com.doudou.onlinebook.service.impl;
 import com.doudou.onlinebook.dao.StaffManageMapper;
 import com.doudou.onlinebook.entity.RequestVo;
 import com.doudou.onlinebook.entity.StaffManageBean;
+import com.doudou.onlinebook.entity.system.LoginBean;
 import com.doudou.onlinebook.service.UserManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +23,10 @@ public class UserManagerServiceImpl implements UserManagerService {
     public StaffManageBean login(RequestVo requestVo) throws Exception {
 
         return staffManageMapper.getStaffInfo(requestVo);
+    }
+
+    @Override
+    public StaffManageBean loginSys(LoginBean loginBean) throws Exception {
+        return staffManageMapper.loginSys(loginBean);
     }
 }
