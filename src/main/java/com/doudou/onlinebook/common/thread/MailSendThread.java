@@ -1,10 +1,9 @@
 package com.doudou.onlinebook.common.thread;
 
 import com.doudou.onlinebook.entity.BookingServicesBean;
-import com.doudou.onlinebook.entity.CompanyBean;
+import com.doudou.onlinebook.entity.company.CompanyBean;
 import com.doudou.onlinebook.entity.HotMailBean;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;

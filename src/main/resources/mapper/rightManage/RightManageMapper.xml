@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.doudou.onlinebook.dao.rightManage.RightManageMapper">
+
+
+    <select id="getRightList" resultType="com.doudou.onlinebook.entity.rightManage.RightInfoBean"
+    parameterType="com.doudou.onlinebook.entity.rightManage.RightVo">
+      select t.right_id,t.right_name,t.createTime,t1.menu_name ,t1.menu_id
+      from right_info t left join menu_item t1 on t1.menu_id = t.menu_id
+    <where>
+        <if test="rightName != null and rightName.length>0">
+            <bind name="rightName" value="'%'+rightName+'%'"/>
+            t.right_name like #{rightName}
+        </if>
+
+    </where>
+    order by t.right_id desc
+    </select>
+</mapper>

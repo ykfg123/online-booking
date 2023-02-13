@@ -18,7 +18,7 @@ import java.util.*;
  * @modified 安全认证 过滤器
  * @version: 1.0.0$
  */
-@WebFilter(filterName = "signFilter",urlPatterns = {"/user/*"})
+@WebFilter(filterName = "signFilter",urlPatterns = {"/aaa/*"})
 @Log4j2
 public class SignTokenFilter implements Filter {
 

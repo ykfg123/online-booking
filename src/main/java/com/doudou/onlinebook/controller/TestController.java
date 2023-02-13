@@ -2,14 +2,11 @@ package com.doudou.onlinebook.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.doudou.onlinebook.entity.TestBean;
-import com.doudou.onlinebook.entity.ValidationRequest;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,15 +43,6 @@ public class TestController {
         list.add(testBean);
         obj.put("list",list);
         return obj.toString();
-    }
-    @RequestMapping("/testValidation")
-    @ResponseBody
-    public String testValidation(@Valid ValidationRequest validationRequestn, BindingResult results){
-        //把实体注解中的错误信息返回
-        if (results.hasErrors()) {
-            return results.getFieldError().getDefaultMessage();
-        }
-        return "ok";
     }
 
 }

@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.doudou.onlinebook.dao.CompanyMapper">
+<mapper namespace="com.doudou.onlinebook.dao.company.CompanyMapper">
+    <insert id="addCompany" parameterType="com.doudou.onlinebook.entity.company.CompanyBean">
+        insert into company (companyPws, companyName, companyAddr, companyTel, companyEmail, companyType)
+        values (#{companyPws}, #{companyName}, #{companyAddr}, #{companyTel}, #{companyEmail}, #{companyType})
+    </insert>
+    <update id="changeCompanySts" parameterType="java.lang.Integer">
+        update company t set t.sts=1 where t.companyId=#{companyId}
+    </update>
 
-    <select id="getCompanyInfo" resultType="com.doudou.onlinebook.entity.CompanyBean"
+    <select id="getCompanyInfo" resultType="com.doudou.onlinebook.entity.company.CompanyBean"
             parameterType="java.lang.String">
-           select t.companyId,t.companyName,t.companyEmail,t.companyTel from company t where t.companyId = #{companyId}
+        select t.companyId, t.companyName, t.companyEmail, t.companyTel
+        from company t
+        where t.companyId = #{companyId}
     </select>
+    <select id="getCompanyLst" resultType="com.doudou.onlinebook.entity.company.CompanyBean"
+            parameterType="com.doudou.onlinebook.entity.company.CompanyVo">
+        select t.companyId, t.companyName, t.companyEmail, t.companyTel,t.companyType,t.companyAddr
+        from company t
+        where 1=1
+        <if test="companyType !=null and t.companyType.length>0">
+            t.companyId = #{companyType}
+        </if>
+        <if test="companyName != null and t.companyName.length>0">
+            t.companyName like ''
+        </if>
+    </select>
+    <select id="getCompany" resultType="com.doudou.onlinebook.entity.company.CompanyInfoBean"
+    parameterType="java.lang.Integer">
+        select t.companyId, t.companyName, t.companyEmail, t.companyTel,t.companyType,t.companyAddr
+        from company t
+        WHERE t.companyId = #{companyId}
+    </select>
+
 
 </mapper>
