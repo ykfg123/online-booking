@@ -1,4 +1,4 @@
-package com.doudou.onlinebook.controller.rightManage;
+package com.doudou.onlinebook.controller.authManage;
 
 import io.swagger.annotations.Api;
 import lombok.extern.log4j.Log4j2;

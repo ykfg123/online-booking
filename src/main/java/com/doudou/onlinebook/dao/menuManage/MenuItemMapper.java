@@ -1,8 +1,7 @@
-package com.doudou.onlinebook.dao.rightManage;
+package com.doudou.onlinebook.dao.menuManage;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.doudou.onlinebook.entity.rightManage.MenuItemBean;
-import com.doudou.onlinebook.entity.rightManage.RightBean;
+import com.doudou.onlinebook.entity.menuManage.MenuItemBean;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

@@ -1,8 +1,6 @@
-package com.doudou.onlinebook.controller.rightManage;
+package com.doudou.onlinebook.controller.authManage;
 
 import com.doudou.onlinebook.common.util.Result;
-import com.doudou.onlinebook.entity.company.CompanyBean;
-import com.doudou.onlinebook.entity.rightManage.MenuItemBean;
 import com.doudou.onlinebook.entity.rightManage.RightBean;
 import com.doudou.onlinebook.entity.rightManage.RightInfoBean;
 import com.doudou.onlinebook.entity.rightManage.RightVo;
@@ -51,20 +49,6 @@ public class RightManageController {
 
            list = rightManageService.getRightList(rightVo);
             count = rightManageService.getCount(rightVo);
-        } catch (Exception e) {
-            log.error("获取权限列表失败，请联系管理员！",e);
-            return Result.error("获取权限列表失败，请联系管理员！");
-        }
-        return Result.successList(list,count);
-    }
-    @ApiOperation(value = "查询", notes = "公司信息", httpMethod = "GET")
-    @GetMapping ("/menu/list")
-    public Result getMenuList() {
-        List<MenuItemBean> list = null;
-        Integer count =0;
-        try {
-
-            list = rightManageService.getMenuList();
         } catch (Exception e) {
             log.error("获取权限列表失败，请联系管理员！",e);
             return Result.error("获取权限列表失败，请联系管理员！");

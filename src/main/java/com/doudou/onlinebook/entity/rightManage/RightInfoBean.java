@@ -22,9 +22,9 @@ public class RightInfoBean {
 
     private String menuName;
 
-    private Data createTime;
+    private String createTime;
 
-    private Data updateTime;
+    private String updateTime;
 
     private String remark;
 }

@@ -1,4 +1,4 @@
-package com.doudou.onlinebook.entity.rightManage;
+package com.doudou.onlinebook.entity.menuManage;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

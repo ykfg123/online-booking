@@ -1,11 +1,8 @@
 package com.doudou.onlinebook.service.impl.rightManage;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.doudou.onlinebook.dao.rightManage.MenuItemMapper;
+import com.doudou.onlinebook.dao.menuManage.MenuItemMapper;
 import com.doudou.onlinebook.dao.rightManage.RightManageMapper;
-import com.doudou.onlinebook.entity.company.CompanyBean;
-import com.doudou.onlinebook.entity.rightManage.MenuItemBean;
 import com.doudou.onlinebook.entity.rightManage.RightBean;
 import com.doudou.onlinebook.entity.rightManage.RightInfoBean;
 import com.doudou.onlinebook.entity.rightManage.RightVo;
@@ -59,11 +56,4 @@ public class RightManageServiceImpl implements RightManageService {
         return rightManageMapper.getRightList(rightVo);
     }
 
-    /**
-     * @return
-     */
-    @Override
-    public List<MenuItemBean> getMenuList() {
-        return menuItemMapper.selectList(null);
-    }
 }
