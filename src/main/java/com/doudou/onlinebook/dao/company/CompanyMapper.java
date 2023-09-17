@@ -21,7 +21,7 @@ public interface CompanyMapper extends BaseMapper<CompanyBean> {
     public int addCompany(CompanyBean companyBean);
     public CompanyBean getCompanyInfo(String companyId);
 
-    public List<CompanyBean> getCompanyLst(CompanyVo companyVo);
+    public List<CompanyBean> getCompanyList(CompanyVo companyVo);
 
     public CompanyInfoBean getCompany(Integer companyId);
 

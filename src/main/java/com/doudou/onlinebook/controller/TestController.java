@@ -1,12 +1,14 @@
 package com.doudou.onlinebook.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.doudou.onlinebook.common.util.IpUtils;
 import com.doudou.onlinebook.entity.TestBean;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +27,14 @@ public class TestController {
 
     @RequestMapping("/")
     @ResponseBody
-    public String index(){
+    public String index(HttpServletRequest request){
+        String ip = IpUtils.getIpAddr(request);
+        if (!IpUtils.validIPAddress(ip)){
 
-        return "预定管理后台启动成功";
+            return "IP正常："+ip;
+        }
+        return "IP异常："+ip;
+
     }
     @RequestMapping("/test")
     @ResponseBody

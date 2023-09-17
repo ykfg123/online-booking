@@ -11,17 +11,17 @@
 
     <select id="getCompanyInfo" resultType="com.doudou.onlinebook.entity.company.CompanyBean"
             parameterType="java.lang.String">
-        select t.companyId, t.companyName, t.companyEmail, t.companyTel
+        select t.companyId, t.companyName, t.companyEmail, t.companyTel,t.companyLogo
         from company t
         where t.companyId = #{companyId}
     </select>
-    <select id="getCompanyLst" resultType="com.doudou.onlinebook.entity.company.CompanyBean"
+    <select id="getCompanyList" resultType="com.doudou.onlinebook.entity.company.CompanyBean"
             parameterType="com.doudou.onlinebook.entity.company.CompanyVo">
-        select t.companyId, t.companyName, t.companyEmail, t.companyTel,t.companyType,t.companyAddr
+        select t.companyId, t.companyName, t.companyEmail, t.companyTel,t.companyType,t.companyAddr,t.companyLogo
         from company t
         where 1=1
         <if test="companyType !=null and t.companyType.length>0">
-            t.companyId = #{companyType}
+            t.companyType = #{companyType}
         </if>
         <if test="companyName != null and t.companyName.length>0">
             t.companyName like ''
